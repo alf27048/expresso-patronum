@@ -5,7 +5,12 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+<%- include('./partials/nav') %>
+
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <!-- La imagen esta dentro de la carpeta public/images ´pero se renderiza sin public-->
+    <img src="/images/gatito.jpg" alt="Gatito">
   </body>
 </html>

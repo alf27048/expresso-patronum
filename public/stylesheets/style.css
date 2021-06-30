@@ -1,8 +1,33 @@
-body {
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+  body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+h1 {
+  color: hotpink;
+}
+img {
+  max-width: 100%;
+}
+.nav {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin-bottom: 20px;
+}
+nav-item {
+  flex-grow: 1;
+}
+.nav-item_link {
+  display: block;
+  padding: 8px;
+  background-color: lavender;
+}
 a {
   color: #00B7FF;
 }
