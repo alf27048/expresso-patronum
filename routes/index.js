@@ -1,10 +1,19 @@
 var express = require('express');
 var router = express.Router();
+const api = require('../api');  //guardo en variables funciones,para despues llamarlas 
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {  //setea las paginas, en este caso / es la principal
-  res.render('index', { title: 'GATITOS' });  // cuando alguien ingrese a localhost 3000, quiero renderices index
+router.get('/', async (req, res) => {
+  const books = await api.getBooks();
+  console.log(books);
+
+  //res.render('index', { title: 'Gatitos' });
+
+  // Devuelve un JSON con  la informacion
+  res.send(books);
 });
+
 
 router.get('/nosotros', (req, res) => {
   res.render('pages/nosotros');
