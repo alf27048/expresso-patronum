@@ -14,6 +14,12 @@ router.get('/', async (req, res) => {
   res.send(books);
 });
 
+router.get('/autores', async (req, res) => {
+  const author = await api.getAuthor();
+  console.log(author);
+  res.send(author);
+  //res.render('pages/autores');
+});
 
 router.get('/nosotros', (req, res) => {
   res.render('pages/nosotros');
