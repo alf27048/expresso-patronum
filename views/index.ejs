@@ -8,6 +8,18 @@
 <%- include('./partials/nav') %>
 
     <h1><%= title %></h1>
+    <ul class="listado">
+      <% books.forEach(book => { %>
+        <li class="listado-item"></li>
+        <a href="/libro/<%= book.id%>">
+          <%= book.titulo %>
+          </a>
+      <% }) %>
+    </ul>
+
+
+
+
     <p>Welcome to <%= title %></p>
 
     <!-- La imagen esta dentro de la carpeta public/images ´pero se renderiza sin public-->
