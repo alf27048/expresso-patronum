@@ -32,6 +32,19 @@ router.get('/libro/:id', async (req, res) => {
   res.render('pages/libro', { book });
 });
 
+// buscar
+router.get('/buscar', async (req, res) => {
+  // Los datos de la URL vienen en req.params
+  // const n findBooksByTitle????
+  const books = await api.findBookByTitle(req.query.query);
+  res.render('index', {title: 'Resultado de busqueda', books});
+});
+// agregar libro
+router.get('/agregar', async (req, res) => {
+  // Los datos de la URL vienen en req.params
+  //const book = await api.getBookById(req.params.id);
+  res.render('pages/agregar');
+});
 
 router.get('/autores', async (req, res) => {
   const author = await api.getAuthor();

@@ -23,7 +23,7 @@ img {
 nav-item {
   flex-grow: 1;
 }
-.nav-item_link {
+.nav-item_link, .nav-item_form {
   display: block;
   padding: 8px;
   background-color: lavender;
