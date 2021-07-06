@@ -35,18 +35,28 @@ const findBookByTitle = async (query) => {
 }
 
 
-const getAuthor = async () => {  //guardo en variables funciones,para despues llamarlas 
+const getAuthors = async () => {  //guardo en variables funciones,para despues llamarlas 
     //promesa
     //getBooks es una funcion, si la guardo en una variable puedop exportarla
 
     //{include: db.autor} para traer lo datos del autor
-const author = await db.autor.findAll({include: db.autor})    //llamada a la BD
+const author = await db.autor.findAll()    //llamada a la BD
 .then(result => {
 return result;          // exporto los datos de la tabla
 });
 
 return author;
 }  
+
+const addBook = async (titulo, precio, autorId, portada) =>{    // orden del formulario
+    const book = await db.libro.create({
+        titulo,
+        precio,
+        portada,
+        autorId    //respetamos el orden de la tabla
+    });
+    return book;
+}
 module.exports = {
-getAuthor, getBooks, getBookById, findBookByTitle
+getAuthors, getBooks, getBookById, findBookByTitle, addBook
 }

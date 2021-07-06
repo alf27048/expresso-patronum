@@ -31,3 +31,8 @@ nav-item {
 a {
   color: #00B7FF;
 }
+.form-agregar{
+  display: grid;
+  gap: 20px;
+  max-width: 400px;
+}

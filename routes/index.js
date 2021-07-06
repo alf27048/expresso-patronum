@@ -41,9 +41,23 @@ router.get('/buscar', async (req, res) => {
 });
 // agregar libro
 router.get('/agregar', async (req, res) => {
-  // Los datos de la URL vienen en req.params
-  //const book = await api.getBookById(req.params.id);
-  res.render('pages/agregar');
+  // conseguir el listado de autores y pasarlo al render
+  const autores = await api.getAuthors();
+  
+  res.render('pages/agregar', { autores });
+});
+//creamos la ruta a traves del metodo POST para q se actibe con el formulario de /agregar
+
+router.post('/agregar_proceso', async (req, res) => { //esa ruta no acepta un metodo get, se ingresa atraves del formulario
+  // "destructuracion objetos": crear variables a partir de los objetos
+  const { titulo, precio, autor, portada } = req.body;  // respetar los name de los labels
+ 
+  // es igual a hacer uno por uno
+  //const titulo = req.body.titulo;
+  //const titulo = req.body.precio;
+  await api.addBook(titulo, precio, autor, portada); //respetar  el orden
+
+  res.send(book);  //trae la info del formulario
 });
 
 router.get('/autores', async (req, res) => {
