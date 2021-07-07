@@ -11,7 +11,9 @@
     <%- include('../partials/nav') %>
 
     <h1><%= book.titulo %> - <%= book.autor.nombreCompleto %></h1>
+    <!-- Mostrar la portada-->
     <p>$<%= book.precio %></p>
+    <img src="<%= book.portada %>" alt="">
     
 </body>
 
