@@ -40,7 +40,7 @@ const getAuthors = async () => {  //guardo en variables funciones,para despues l
     //getBooks es una funcion, si la guardo en una variable puedop exportarla
 
     //{include: db.autor} para traer lo datos del autor
-const author = await db.autor.findAll()    //llamada a la BD
+const author = await db.autor.findAll({include:db.libro})    //llamada a la BD
 .then(result => {
 return result;          // exporto los datos de la tabla
 });
@@ -57,6 +57,20 @@ const addBook = async (titulo, precio, autorId, portada) =>{    // orden del for
     });
     return book;
 }
+
+//creamos la funcion para ELIMINAR libros por ID
+const deleteBookById = async (idLibro) => {
+    const book = await db.libro.destroy({
+        where: {
+           id: idLibro  // el swegundo id es el que viene de la funcion 
+        
+        }
+    });
+    return book;
+}
+
+
+
 module.exports = {
-getAuthors, getBooks, getBookById, findBookByTitle, addBook
+getAuthors, getBooks, getBookById, findBookByTitle, addBook, deleteBookById
 }

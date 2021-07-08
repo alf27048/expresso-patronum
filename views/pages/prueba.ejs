@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probando</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <%- include('../partials/nav') %>
+    <h1>Estas en prueba</h1>
+
+    <!-- 1.queremos listar los autores con sus nombre scompletos
+        2. sublista con libros de ese autor y sus libros-->
+        <ul class="lista-cool">
+            <li>Stephen King
+                <ul>
+                    <li>IT</li>
+                    <li>Carrie</li>
+                </ul>
+            </li>
+            <li>Daniel Radcliffe</li>
+            <li>Anne Rice</li>
+        </ul>
+        <hr>
+        <ul class="lista-cool">
+            <% autores.forEach(auto => { %> 
+                <li>
+                    Author ID: <%= auto.id %> 
+                    Name: <%= auto.nombreCompleto %>
+                </li>
+            <% }) %>
+        </ul>
+        
+
+    
+</body>
+</html>

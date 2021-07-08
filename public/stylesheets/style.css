@@ -36,3 +36,7 @@ a {
   gap: 20px;
   max-width: 400px;
 }
+.lista-cool,
+.lista-cool ul {
+  padding-left: 30px;
+}

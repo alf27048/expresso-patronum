@@ -74,4 +74,32 @@ router.get('/nosotros', (req, res) => {
 router.get('/contacto', (req, res) => {
   res.render('pages/contacto');
 });
+
+/*router.get('/prueba', async (req, res) => {
+  const autores = await api.getAuthors();
+  res.render('pages/prueba', {autores});
+});*/
+
+router.get('/eliminar/:id', async (req, res) => {     // todo elo que es darle click a un enlace es get
+  // La respuesta es la cantidad de lineas afectadas o borradas
+  const affectedRows = await api.deleteBookById(req.params.id);
+
+  if (affectedRows > 0) {
+    // res.send('Libro eliminado');
+    //const books = await api.getBooks();
+
+   // res.render('index', {
+     // title: 'Librería',
+    //  books
+ // });
+    res.redirect('/');
+  
+  } else {
+    res.send('Algo salió mal :(');
+  }
+
+});
+
+
+
 module.exports = router;
